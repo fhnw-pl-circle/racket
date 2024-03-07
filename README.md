@@ -54,6 +54,18 @@ To execute a file directly, use `raco exe file.rkt` or `racket file.rkt`.
 'Symbols
 
 #t #f    ; true and false
+
+; Definitions are declared via the define keyword
+(define n 10)
+
+; A parenthesized name declares a function
+(define (square n) (* n n))
+
+; Invoking a function happens by parenthesizing
+(square 10)
+
+; The first element is the called function
+(+ 20 30 40 50 60)
 ```
 
 ## Part 2: Typed Racket
@@ -154,6 +166,33 @@ settings to a certain [`output-port`](https://docs.racket-lang.org/reference/por
   (define (print-string  s) (write   s      out))
   (define (print-number  n) (write   n      out)))
 ```
+
+## Part 4: Custom Language
+
+`04-custom-lang` contains a tiny, tiny implementation of a custom language, using `parsack`
+to parse the language first.
+
+```js
+#lang reader "lang.rkt"
+
+let a = 20;
+
+function double(x) {
+    return x * 2;
+}
+
+let twice = f => x => f(f(x));
+
+show(twice(double)(a));
+```
+
+It is effectively a very slim JavaScript-like: Mandatory semicolons, no conditionals or
+loops (yet), immutable `let` bindings (there is no asssignment), a `show` function that
+works like `console.log` and gets translated to `println`, and single-argument, non-parenthesized,
+expression-bodied arrow functions.
+
+`lang.rkt` contains the implementation of the parser, while `expand.rkt` defines
+the expansion by which the S-Expressions are converted into code that Racket can then execute.
 
 ## Part 0: What lies beyond
 
