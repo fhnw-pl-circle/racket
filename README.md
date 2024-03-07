@@ -4,11 +4,12 @@
 
 Racket is a LISP-style programming language that features a strong macro system, (re)definable syntax, functional and imperative constructs, dynamic, gradual and static typing - basically, if you can imagine it, you can make Racket do it.
 
-This project attempts to give an overview of Racket and its possibilities in 3 stages:
+This project attempts to give an overview of Racket and its possibilities in 4 stages:
 
 - A general Racket overview
-- An intro to Macros
 - Typed Racket
+- An intro to Macros
+- A tiny custom language
 
 ## Installation
 
@@ -132,7 +133,7 @@ to learn (Rust proc macros), just the full power of the language, at your finger
       [(_ (outer ...)
            (define (name param ...) body ...) ...) 
            
-           #''(define-values (name ...)
+           #'(define-values (name ...)
                 (let ([f (lambda (outer ...)
                             (local [(define (name param ...) body ...) ...]
                                 (list name ...)))])
