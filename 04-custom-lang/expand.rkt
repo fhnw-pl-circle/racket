@@ -65,6 +65,9 @@
 
   (define-syntax (op stx)
     (syntax-case stx ()
+      [(_ #\+ a b) #'(+ a b)]
+      [(_ #\- a b) #'(- a b)]
+      [(_ #\/ a b) #'(/ a b)]
       [(_ #\* a b) #'(* a b)]))
 
 )

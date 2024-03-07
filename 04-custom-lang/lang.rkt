@@ -5,9 +5,9 @@
 (define (read-syntax path port)
     (define result (match (parse-result program port)
         [(list 'program stmts) stmts]))
-    ; (println result)
+    ; (writeln result)
     (define out-mod `(module unnamed-module "expand.rkt" ,@result))
-    ; (println out-mod)
+    ; (writeln out-mod)
     (datum->syntax #f out-mod))
 
 (provide read-syntax)
