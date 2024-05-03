@@ -24,6 +24,15 @@ If you update, you have to do two things:
 - `raco pkg migrate 8.8`, replacing 8.8 with the old version
 - `raco setup` as Admin!
 
+### Packages
+
+```bash
+raco pkg install parsack
+raco pkg install plait
+raco pkg install profj
+raco pkg install fmt
+```
+
 ## Part 1: How does Racket work?
 
 A simple REPL interaction might look like this:
